@@ -23,7 +23,7 @@ export default function UserGallery({ user, inventions, setInventions, setError 
         if (formData && formData.productName && formData.cost && formData.photoUrl && formData.materialsUsed) {
             setError("");
             try {
-                const response = await fetch('http://localhost:5000/api/inventions', {
+                const response = await fetch('/api/inventions', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

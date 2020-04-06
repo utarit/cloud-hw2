@@ -17,7 +17,7 @@ function App() {
   async function fetchUser() {
     setLoading(true);
     try {
-      const userResponse = await fetch('http://localhost:5000/api/login', {
+      const userResponse = await fetch('/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ function App() {
 
   async function fetchInventions() {
     try {
-      const response = await fetch('http://localhost:5000/api/inventions', {
+      const response = await fetch('/api/inventions', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ function App() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ function App() {
   async function deleteUser() {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/user/' + user.username, {
+      const response = await fetch('/api/user/' + user.username, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

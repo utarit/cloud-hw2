@@ -14,7 +14,7 @@ export default function InventionCard({ invention, user, userGallery, setUser })
     async function userUpdate() {
         // console.log("User: ", rate)
         if (rate !== 0) {
-            const response = await fetch('http://localhost:5000/api/user/' + invention.inventorName, {
+            const response = await fetch('/api/user/' + invention.inventorName, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ export default function InventionCard({ invention, user, userGallery, setUser })
 
     async function rateUpdate() {
         if (rate !== 0) {
-            const response = await fetch('http://localhost:5000/api/invention/' + inv._id, {
+            const response = await fetch('/api/invention/' + inv._id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export default function InventionCard({ invention, user, userGallery, setUser })
 
     async function onDeleteClick() {
         try {
-            const response = await fetch('http://localhost:5000/api/invention/' + inv._id, {
+            const response = await fetch('/api/invention/' + inv._id, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
