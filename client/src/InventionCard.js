@@ -14,15 +14,18 @@ export default function InventionCard({ invention, user, userGallery, setUser })
     async function userUpdate() {
         // console.log("User: ", rate)
         if (rate !== 0) {
-            const response = await fetch('http://localhost:5000/api/user/' + user.username, {
+            const response = await fetch('http://localhost:5000/api/user/' + invention.inventorName, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
             const resData = await response.json();
-            setUser(resData.data);
-            localStorage.setItem('userData', JSON.stringify(resData.data));
+            if (inv.inventorName === user.username) {
+                setUser(resData.data);
+                localStorage.setItem('userData', JSON.stringify(resData.data));
+            }
+
         }
     }
 
@@ -65,7 +68,7 @@ export default function InventionCard({ invention, user, userGallery, setUser })
         <div className="col-sm p-1">
             <div className="card" style={{ width: 250 }}>
                 <div className="image-div" >
-                    <img  style={{height: 200, objectFit: 'cover'}} src={inv.photoUrl} className="card-img-top" alt="..." />
+                    <img style={{ height: 200, objectFit: 'cover' }} src={inv.photoUrl} className="card-img-top" alt="..." />
                     {inv.featured ? <span className="badge notify-badge">Featured</span> : null}
                     {inv.quote ? <p className="quote-text"><small><i>{inv.quote}</i></small></p> : null}
                 </div>

@@ -128,11 +128,8 @@ exports.updateRating = async (req, res, next) => {
         if (!user) {
             return;
         }
-        console.log('ratedUser: ', user.username);
-
 
         const inventions = await Invention.find({inventorName: user.username});
-        console.log(inventions);
         let sum = 0;
         let count = inventions.length;
         if(count !== 0){

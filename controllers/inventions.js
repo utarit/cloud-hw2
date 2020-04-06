@@ -83,7 +83,7 @@ exports.getInventionsFromUser = async (req, res, next) => {
 }
 
 exports.rateInvention = async (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
     const { rate, username } = req.body;
 
     try {
